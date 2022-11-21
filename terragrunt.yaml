@@ -1,0 +1,17 @@
+directory:
+  basePath: terragrunt
+  parentPaths:
+  - eu-west-1/staging
+  - staging/eu-west-1
+  appPaths:
+  - app1
+  - app2
+terragrunt:
+  main:
+    remoteState:
+      bucketType: s3
+      bucketName: test
+      region: eu-west-1
+      bucketKey: terraform.tfstate
+      encryption: true
+      dynamoDbTable: dynamodb-test
